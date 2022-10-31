@@ -1,0 +1,13 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <assert.h>
+#define string(a) #a
+int main(void)
+{
+	printf("Value %d, %d, %d, %d, %d", 10, 20, 30);
+
+	exit(0);
+}
+
+
+
