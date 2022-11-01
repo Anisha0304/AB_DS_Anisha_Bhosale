@@ -35,8 +35,8 @@ for( long index3 = 0; index3 < array_get_size_of_dimension(my_4Darray, 2); ++ind
 for( long index4 = 0; index4 < array_get_size_of_dimension(my_4Darray, 3); ++index4)
 array_set_data(my_4Darray,(data_t)(++count),index1,index2,index3,index4);
 fprintf(stdout,"\n*************************************************************************\n");
-fprintf(stdout," First Element of 4D array = %lld\n", (int)array_get_data(my_4Darray, 0, 0, 0, 0) );
-fprintf(stdout," Last Element of 4D array = %lld\n", (int)array_get_data(my_4Darray, 5, 5, 5, 5) );
+fprintf(stdout," First Element of 4D array = %lld\n", (long long)array_get_data(my_4Darray, 0, 0, 0, 0) );
+fprintf(stdout," Last Element of 4D array = %lld\n", (long long)array_get_data(my_4Darray, 5, 5, 5, 5) );
 fprintf(stdout,"\n*************************************************************************\n\n\n\n\n");array_destroy(&my_4Darray);
 
                                  //8 Dimension Array
@@ -58,8 +58,8 @@ for(long index8=0;index8<array_get_size_of_dimension(my_8Darray,7); ++index8)
 array_set_data( my_8Darray, (data_t)(++count), index1, index2,index3, index4, index5, index6, index7, index8);
 fprintf(stdout,"\n*************************************************************************\n");
 fprintf(stdout,"\n8D Array:\n");
-fprintf(stdout," First Element of 8D array = %lld\n", (int)array_get_data(my_8Darray, 0, 0, 0, 0, 0, 0, 0, 0) );
-fprintf(stdout," Last Element of 8D array = %lld\n", (int)array_get_data(my_8Darray, 3, 3, 3, 3, 3, 3, 3, 3) );
+fprintf(stdout," First Element of 8D array = %lld\n", (long long)array_get_data(my_8Darray, 0, 0, 0, 0, 0, 0, 0, 0) );
+fprintf(stdout," Last Element of 8D array = %lld\n", (long long)array_get_data(my_8Darray, 3, 3, 3, 3, 3, 3, 3, 3) );
 fprintf(stdout,"\n*************************************************************************\n\n\n\n\n");array_destroy(&my_8Darray);
 
 
@@ -87,8 +87,8 @@ array_set_data(my_12Darray,(data_t)(++count), index1, index2, index3, index4, in
 // Read Value
 
 fprintf(stdout, "\n*************************************************************************\n");
-fprintf(stdout," First Element of 12D array = %lld\n", (int)array_get_data(my_12Darray, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0) );
-fprintf(stdout," Last Element of 12D array = %lld\n", (int)array_get_data(my_12Darray, NO_OF_11D_ARRAY-1, NO_OF_10D_ARRAY-1, NO_OF_9D_ARRAY-1, NO_OF_8D_ARRAY-1, NO_OF_7D_ARRAY-1, NO_OF_6D_ARRAY-1, NO_OF_5D_ARRAY-1, NO_OF_4D_ARRAY-1, NO_OF_3D_ARRAY-1, NO_OF_2D_ARRAY-1, NO_OF_1D_ARRAY-1, NO_OF_ELEMENTS-1));
+fprintf(stdout," First Element of 12D array = %lld\n", (long long)array_get_data(my_12Darray, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0) );
+fprintf(stdout," Last Element of 12D array = %lld\n", (long long)array_get_data(my_12Darray, NO_OF_11D_ARRAY-1, NO_OF_10D_ARRAY-1, NO_OF_9D_ARRAY-1, NO_OF_8D_ARRAY-1, NO_OF_7D_ARRAY-1, NO_OF_6D_ARRAY-1, NO_OF_5D_ARRAY-1, NO_OF_4D_ARRAY-1, NO_OF_3D_ARRAY-1, NO_OF_2D_ARRAY-1, NO_OF_1D_ARRAY-1, NO_OF_ELEMENTS-1));
 fprintf(stdout, "\n*************************************************************************\n\n\n\n\n");
 //Destroy Array
 

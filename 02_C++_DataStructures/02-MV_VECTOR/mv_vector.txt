@@ -1,0 +1,7 @@
+#include <iostream>
+#include <vector>
+vector<long> vec;
+int main(void)
+{
+return(0);
+}

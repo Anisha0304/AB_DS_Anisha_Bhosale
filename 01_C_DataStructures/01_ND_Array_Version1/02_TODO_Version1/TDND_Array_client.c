@@ -52,8 +52,8 @@ array_set_data(my_4Darray,
 						index4);
 fprintf(stdout, "\n*************************************************************************\n");
 
-fprintf(stdout," First Element of 4D array = %lld\n", (int)array_get_data(my_4Darray, 0, 0, 0, 0));
-fprintf(stdout," Last Element of 4D array = %lld\n", (int)array_get_data(my_4Darray, 5, 5, 5, 5));
+fprintf(stdout," First Element of 4D array = %lld\n", (long long)array_get_data(my_4Darray, 0, 0, 0, 0));
+fprintf(stdout," Last Element of 4D array = %lld\n", (long long)array_get_data(my_4Darray, 5, 5, 5, 5));
 fprintf(stdout, "\n*************************************************************************\n\n\n\n\n");
 array_destroy(&my_4Darray);
 
@@ -94,8 +94,8 @@ array_set_data(	my_8Darray,
 fprintf(stdout, "\n*************************************************************************\n");
 fprintf(stdout, "\n8D Array:\n");
 
-fprintf(stdout," First Element of 8D array = %lld\n", (int)array_get_data(my_8Darray, 0, 0, 0, 0, 0, 0, 0, 0));
-fprintf(stdout," Last Element of 8D array = %lld\n", (int)array_get_data(my_8Darray, 3, 3, 3, 3, 3, 3, 3, 3));
+fprintf(stdout," First Element of 8D array = %lld\n", (long long)array_get_data(my_8Darray, 0, 0, 0, 0, 0, 0, 0, 0));
+fprintf(stdout," Last Element of 8D array = %lld\n", (long long)array_get_data(my_8Darray, 3, 3, 3, 3, 3, 3, 3, 3));
 fprintf(stdout, "\n*************************************************************************\n\n\n\n\n");
 array_destroy( &my_8Darray );
 					
@@ -142,8 +142,8 @@ array_set_data(	my_12Darray,
 //Read Value
 
 fprintf(stdout, "\n*************************************************************************\n");
-fprintf(stdout," First Element of 12D array = %lld\n", (int)array_get_data(my_12Darray, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0));
-fprintf(stdout," Last Element of 12D array = %lld\n", (int)array_get_data(my_12Darray, 
+fprintf(stdout," First Element of 12D array = %lld\n", (long long)array_get_data(my_12Darray, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0));
+fprintf(stdout," Last Element of 12D array = %lld\n", (long long)array_get_data(my_12Darray, 
 																	NO_OF_11D_ARRAY-1, 
 																		NO_OF_10D_ARRAY-1, 
 																		NO_OF_9D_ARRAY-1, 

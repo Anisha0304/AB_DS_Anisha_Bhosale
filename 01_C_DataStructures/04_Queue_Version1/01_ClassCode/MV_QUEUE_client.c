@@ -5,12 +5,12 @@
 p_mv_queue_t pqueue = NULL;
 void print_data(data_t data)
 {
-long long lnum =(int)data;
+long long lnum =(long long)data;
 fprintf(stdout,"{%lld}-",lnum);
 }
 void delete_data(data_t data)
 {
-long long lnum =(int)data;
+long long lnum =(long long)data;
 fprintf(stdout, "deleting : %lld\n", lnum);
 }
 int main(void)
