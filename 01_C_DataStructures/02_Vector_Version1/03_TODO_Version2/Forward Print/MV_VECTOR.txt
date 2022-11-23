@@ -1,0 +1,11 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <assert.h>
+#define string(v)	#v
+int main(void)
+{
+int num = 10;
+printf("String = %s\n", string(MAX));
+exit(0);
+}
+
