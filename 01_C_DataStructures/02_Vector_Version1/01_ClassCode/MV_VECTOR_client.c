@@ -2,6 +2,17 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <assert.h>
+/**
+ * @file	client.c
+ * @author	MarshallingVoid	(marshallingvoid@gmail.com)
+ * @brief	This file contains the client side usage of DOUBLY CIRCULAR LINKED LIST
+ * @date	06/11/2022
+ * @version	1.0
+ * 
+ * @copyright	Copyrights (c) 2022
+ */
+
+
 #include "MV_VECTOR.h"
 p_mv_vector_t pvector =NULL;
 void print_data(p_mv_vector_t pvector)

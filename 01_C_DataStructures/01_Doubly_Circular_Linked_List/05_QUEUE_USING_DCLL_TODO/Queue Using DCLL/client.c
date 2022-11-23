@@ -8,6 +8,17 @@
  * @copyright	Copyrights (c) 2022
  */
 
+
+/**
+ * @file	client.c
+ * @author	MarshallingVoid	(marshallingvoid@gmail.com)
+ * @brief	This file contains the client side usage of DOUBLY CIRCULAR LINKED LIST
+ * @date	06/11/2022
+ * @version	1.0
+ * 
+ * @copyright	Copyrights (c) 2022
+ */
+
 #include "queue.h"
 #include <stdlib.h>
 #include <stdio.h>
