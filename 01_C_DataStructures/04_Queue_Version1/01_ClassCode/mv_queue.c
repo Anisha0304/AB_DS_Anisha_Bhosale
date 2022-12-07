@@ -6,55 +6,49 @@
 
 //Function Declaration
 
-static ret_t error_checking(const int assert_condition,const char *assert_condition_str, const char *file_name, const long line_no,
-	const int error_condition,const char *error_str,void *(*perror_handler)(void *),void *error_handler_params);
+void error_checking(const int assert_condition,const char* assert_condition_str,const char* file_name,const int line_no,const int error_condition,const char* error_str);
+
 
 //MACROS
 
-#define QUEUE_DEFAULT_SIZE 512
-#define ERROR_CHECKING(assert_condition, error_condition, error_str, error_handler, error_handler_params) ( \
-	error_checking(assert_condition,                                                                        \
-				   #assert_condition,                                                                       \
-				   __FILE__,                                                                                \
-				   __LINE__,                                                                                \
-				   error_condition,                                                                         \
-				   error_str,                                                                               \
-				   error_handler,                                                                           \
-				   error_handler_params))
+#define ERROR_CHECKING(	assert_condition, error_condition, error_str){											\
+																		error_checking( assert_condition,		\
+																								#assert_condition, 		\
+																								__FILE__,				\
+																								__LINE__,				\
+																								error_condition,		\
+																								error_str);				\
+}
 
 //Queue Auxillary Functions
 static void *Xmalloc(size_t nr_of_bytes)
 {
 void *p =malloc(nr_of_bytes);
-ret_t status = ERROR_CHECKING(1,
+ERROR_CHECKING(1,
 								NULL ==p,
-								"ERROR: Out of memory.\n",
-								 NULL,
-							 NULL);
+								"ERROR: Out of memory.\n");
 
 return (p);
 }
-static void *Xcalloc(size_t nr_of_elements, size_t size_of_element)
+static void *Xcalloc(size_t nr_of_elements, size_t nr_of_bytes)
 {
-void *p =calloc(nr_of_elements,size_of_element);
-ret_t status = ERROR_CHECKING(1,
+void *p =calloc(nr_of_elements,nr_of_bytes);
+ ERROR_CHECKING(1,
 								 NULL ==p,
-								  "ERROR: Out Of Memory",
-								 NULL,
-								 NULL);
+								  "ERROR: Out Of Memory.\n");
 
 return (p);
 }
-static ret_t error_checking(const int assert_condition,
-							const char *assert_condition_str,
-							const char *file_name,
-							const long line_no,
-							const int error_condition,
-							const char *error_str,
-							void *(*perror_handler)(void *),
-							void *error_handler_params)
+static	void* Xrealloc(void* p, size_t nr_of_bytes)
 {
-ret_t status =SUCCESS;
+void* rp = realloc(p, nr_of_bytes);
+ERROR_CHECKING(1,NULL == p,"ERROR:Out Of Memory.\n");
+return(rp);
+}
+void error_checking(const int assert_condition,const char* assert_condition_str,const char* file_name,const int line_no,const int error_condition,const char* error_str)
+
+{
+
 #ifdef MV_DEBUG
 
 	//Assertion
@@ -107,10 +101,18 @@ extern p_mv_queue_t create_default_queue(void)
 {
 p_mv_queue_t pqueue =(p_mv_queue_t)Xmalloc(SIZE_QUEUE);
 ret_t status = ERROR_CHECKING(NULL !=pqueue,
-								  0,
-								  NULL,
-								  NULL,
+								  1,
 								  NULL);
+pqueue->capacity=2;
+pqueue->nr_of_elements=0;
+pqueue->array=(p_data_t)Xcalloc(pqueue->capacity,SIZE_DATA);
+ERROR_CHECKING(NULL!=pqueue->array,1,NULL);
+return(pqueue);
+}
+extern ret_t mv_queue_push_back(p_mv_queue_t pqueue,data_t data)
+{
+ERROR_CHECKING(NULL != pqueue,NULL == pqueue,"ERROR:Queue Not found\n");
+}
 if(FAILURE ==status)
 {
 exit(FAILURE);
@@ -130,7 +132,7 @@ exit(FAILURE);
 	pqueue->length = QUEUE_DEFAULT_SIZE;
 
 	return (pqueue);
-}
+
 
 extern p_mv_queue_t create_custom_queue(size_t nr_of_elements)
 {

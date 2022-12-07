@@ -1,7 +1,3 @@
-//Headers
-#include <stdio.h>
-#include <stdlib.h>
-#include <assert.h>
 /**
  * @file	client.c
  * @author	MarshallingVoid	(marshallingvoid@gmail.com)
@@ -11,7 +7,10 @@
  * 
  * @copyright	Copyrights (c) 2022
  */
-
+//Headers
+#include <stdio.h>
+#include <stdlib.h>
+#include <assert.h>
 
 #include "MV_VECTOR.h"
 p_mv_vector_t pvector =NULL;

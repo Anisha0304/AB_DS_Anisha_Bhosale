@@ -49,39 +49,14 @@ long long  no_of_elements = 9999;
 darr = (struct Demo*) calloc(no_of_elements, sizeof(struct Demo));
 for( long long le = 0; le < no_of_elements; ++le )
 {
-    darr[le].llnum1 = 1 + rand() % 999;
-    darr[le].llnum2 = 1 + rand() % 999;
-    darr[le].llnum3 = 1 + rand() % 999;
-    darr[le].llnum4 = 1 + rand() % 999;
-    darr[le].llnum5 = 1 + rand() % 999;
-    darr[le].inum = 1 + rand() % 50;
-    darr[le].ch = 65 + rand() % 26;
+darr[le].llnum1 = 1 + rand() % 999;
+darr[le].llnum2 = 1 + rand() % 999;
+darr[le].llnum3 = 1 + rand() % 999;
+darr[le].llnum4 = 1 + rand() % 999;
+darr[le].llnum5 = 1 + rand() % 999;
+darr[le].inum = 1 + rand() % 50;
+darr[le].ch = 65 + rand() % 26;
 }
-
-/*NEW_LINE;
-
-    fprintf(stdout, "Before Sort:\n");
-    fprintf(stdout, "No Of Elements: %lld\n", no_of_elements);
-    fprintf(stdout, "[START]\n");
-    for( long long le = 0; le < no_of_elements; ++le )
-    {
-        //fprintf(stdout, "[%lld]-", darr[le]);
-        fprintf(stdout, 
-                "[%lld | %lld | %lld | %lld | %lld | %d | %c]\n", 
-                darr[le].llnum1, 
-                darr[le].llnum2, 
-                darr[le].llnum3, 
-                darr[le].llnum4, 
-                darr[le].llnum5, 
-                darr[le].inum, 
-                darr[le].ch);
-}
-    fprintf(stdout, "[END]");
-
-    NEW_LINE;*/
-
-    //  MOMENT OF TRUTH: Call The Insertion Sort 
-
 clock_t start = clock();
 mv_insertion_sort((data_t*)darr, no_of_elements, sizeof(struct Demo), compare_proc);
 clock_t end = clock();
@@ -94,14 +69,14 @@ fprintf(stdout, "[START]\n");
 for( long long le = 0; le < no_of_elements; ++le )
 {
 fprintf(stdout, 
-                "[%lld | %lld | %lld | %lld | %lld | %d | %c]\n", 
-                darr[le].llnum1, 
-                darr[le].llnum2, 
-                darr[le].llnum3, 
-                darr[le].llnum4, 
-                darr[le].llnum5, 
-                darr[le].inum, 
-                darr[le].ch);
+    "[%lld | %lld | %lld | %lld | %lld | %d | %c]\n", 
+    darr[le].llnum1, 
+    darr[le].llnum2, 
+    darr[le].llnum3, 
+    darr[le].llnum4, 
+    darr[le].llnum5, 
+    darr[le].inum, 
+darr[le].ch);
 }
 fprintf(stdout, "[END]");
 NEW_LINE;
