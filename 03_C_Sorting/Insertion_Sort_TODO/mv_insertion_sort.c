@@ -1,4 +1,3 @@
-
 // Headers
 
 #include "mv_insertion_sort.h"

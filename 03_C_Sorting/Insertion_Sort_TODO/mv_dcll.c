@@ -1,4 +1,3 @@
-
 /**
  * @file    mv_dcll.c
  * @author  Anisha Bhosale  (anishabhosale003@gmail.com)
@@ -10,7 +9,8 @@
  * @copyright   Copyrights (c) 2022
  */
 
-//  Headers
+//Headers
+
 #include    <stdio.h>
 #include    <stdlib.h>
 #include    <string.h>
@@ -26,7 +26,6 @@ static  ret_t   error_checking( const int assert_condition,
                                 const char* error_condition_str,
                                 void*(*error_handler)(void*),
                                 void* error_handler_params);
-
 static p_node_t create_node(data_t new_data);
 static void* exit_program(void* param);
 
@@ -82,6 +81,7 @@ static void* exit_program(void* param);
  * @params    no_of_bytes
  * @returns   the pointer to the memory dynamically allocated of 'no_of_bytes' size
  */
+
 static void* Xmalloc(size_t no_of_bytes)
 {
 
@@ -108,6 +108,7 @@ return(p);
  *           8) Params for Error Handler
  * @returns  Status of the error / asssert checking
  */
+
 static  ret_t   error_checking( const int assert_condition,
                                 const char* assert_condition_str,
                                 const char* file_name,
@@ -137,9 +138,9 @@ status = FAILURE;
 
 if( error_condition )
 {
- if(error_condition_str)
-  {
- fprintf(stderr, error_condition_str);
+if(error_condition_str)
+{
+fprintf(stderr, error_condition_str);
 fprintf(stderr, "\n");
  }
 status = FAILURE;
@@ -217,7 +218,7 @@ CREATE_NODE(sentinel, NULL, exit_program);
 
 //Assign the sentinel as the head of the new DCLL
 
- plist->p_head = sentinel;
+plist->p_head = sentinel;
 plist->p_tail = sentinel;
 plist->size = 0;
 return(plist);
@@ -243,7 +244,7 @@ mid->p_next = last;
 
 //Manipulate the list pointer to incorporate the new node
 
- first->p_next = mid;
+first->p_next = mid;
 last->p_prev = mid;
 
 //Assign new tail
@@ -283,13 +284,13 @@ d_node->p_prev = NULL;
 
 //Get the data to return
 
- data_t to_return_data = d_node->key;
+data_t to_return_data = d_node->key;
 free(d_node);
 d_node = NULL;
 
 //Decrement the size
 
- plist->size--;
+plist->size--;
 
 //Assign new tail
 
@@ -403,29 +404,25 @@ extern ret_t mv_dcll_insert_at(p_mv_dcll_t plist, data_t new_data, size_t index)
 
 //Code
 
- #ifdef DEBUG
+#ifdef DEBUG
 ASSERTION( NULL != plist )
 #endif
- RETURN_FAILURE( check_list_conditions(plist, CHECK_LIST_EMPTY) );
+RETURN_FAILURE( check_list_conditions(plist, CHECK_LIST_EMPTY) );
 if( 0 ==index )
 return( mv_dcll_insert_front(plist, new_data) );
 else if( index == plist->size )
- return( mv_dcll_insert_back(plist, new_data) );
+return( mv_dcll_insert_back(plist, new_data) );
 RETURN_FAILURE( ERROR_CHECKING( index < plist->size,
                                     index >= plist->size,
                                     "\nERROR: Index Out Of Bound.",
                                     NULL,
                                     NULL) ); 
 p_node_t prunner = plist->p_head;
-
-    for( size_t le = 0; le < index; ++le)
-        prunner = prunner->p_next;
-
-    p_node_t new_node = NULL;
-
-    CREATE_NODE(new_node, new_data, exit_program);
-
-    return( mv_dcll_generic_insert(plist, prunner, new_node, prunner->p_next ) );
+for( size_t le = 0; le < index; ++le)
+prunner = prunner->p_next;
+p_node_t new_node = NULL;
+CREATE_NODE(new_node, new_data, exit_program);
+return( mv_dcll_generic_insert(plist, prunner, new_node, prunner->p_next ) );
 }
 
 /**
@@ -437,6 +434,7 @@ p_node_t prunner = plist->p_head;
  * @returns     status of insertion
  *              SUCCESS if successful / FAILURE if unsuccessful
  */
+
 extern ret_t mv_dcll_insert_before(p_mv_dcll_t plist, data_t new_data, data_t e_data, COMPAREDATAPROC  pcomparedataproc)
 {
 
@@ -454,14 +452,14 @@ RETURN_FAILURE( ERROR_CHECKING( NULL != pcomparedataproc,
 p_node_t prunner = plist->p_head->p_next;
 while(1)
 {
- RETURN_FAILURE( ERROR_CHECKING( 1,
+RETURN_FAILURE( ERROR_CHECKING( 1,
                                         prunner == plist->p_head,
                                         "\nERROR: Existing Data no found",
                                         NULL,
                                         NULL) );
 
 if( SUCCESS == pcomparedataproc(prunner->key, e_data) )
- break;
+break;
 prunner = prunner->p_next;
 }
 p_node_t new_node = NULL;
@@ -484,7 +482,7 @@ extern ret_t mv_dcll_insert_after(p_mv_dcll_t plist, data_t new_data, data_t e_d
 
 //Code
 
- #ifdef  DEBUG
+#ifdef  DEBUG
 ASSERTION( NULL != plist )
 #endif
 RETURN_FAILURE( check_list_conditions(plist, CHECK_LIST_EMPTY) );
@@ -503,7 +501,7 @@ RETURN_FAILURE( ERROR_CHECKING( 1,
                                         NULL) );
 
 if( SUCCESS == pcomparedataproc(prunner->key, e_data) )
- break;
+break;
 prunner = prunner->p_next;
 }
 p_node_t new_node = NULL;
@@ -587,6 +585,7 @@ extern data_t mv_dcll_remove_before(p_mv_dcll_t plist, data_t e_data, COMPAREDAT
 {
 
 //Code
+
 #ifdef  DEBUG
 ASSERTION( NULL != plist )
 #endif
@@ -604,7 +603,6 @@ RETURN_NULL( ERROR_CHECKING(1,
                                     "\nERROR: Existing Data no found",
                                     NULL,
                                     NULL) );
-
 if( SUCCESS == pcomparedataproc(prunner->key, e_data) )
 break;
 prunner = prunner->p_next;

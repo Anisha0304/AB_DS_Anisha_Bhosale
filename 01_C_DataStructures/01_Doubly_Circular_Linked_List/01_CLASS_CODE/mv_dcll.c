@@ -26,7 +26,6 @@ static  ret_t   error_checking( const int assert_condition,
                                 const char* error_condition_str,
                                 void*(*error_handler)(void*),
                                 void* error_handler_params);
-
 static p_node_t create_node(data_t new_data);
 static void* exit_program(void* param);
 
@@ -92,7 +91,6 @@ ERROR_CHECKING( 0,
                     "ERROR: Out Of Memory",
                     exit_program,
                     NULL);
-
 return(p);
 } 
 
@@ -108,6 +106,7 @@ return(p);
  *              8) Params for Error Handler
  * @returns     Status of the error / asssert checking
  */
+
 static  ret_t   error_checking( const int assert_condition,
                                 const char* assert_condition_str,
                                 const char* file_name,

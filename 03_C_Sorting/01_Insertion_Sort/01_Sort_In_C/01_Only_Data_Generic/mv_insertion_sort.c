@@ -9,26 +9,6 @@
  * @copyright	Copyright (c) 2022
  */
 
-/**
- * Algorithm:
- * 		
- * InsertionSort(A)
- * {
- * 		loop( i = 1 to A.length - 1 )
- * 		{
- * 			key = A[i]
- * 			
- * 			j = i-1
- * 			loop( j >= 0 && A[j] > key )
- * 			{
- * 				A[j+1] = A[j]
- * 			}	
- * 			A[j+1] = key
- * 		}
- * } 
- *
- */
-
 #include <stdio.h>
 #include <stdlib.h>
 #include "mv_insertion_sort.h"
