@@ -100,11 +100,11 @@ T_ARRAY operator*()
 return(*runner);
 }
 };
-Iterator	begin()
+Iterator begin()
 {
 return( Iterator(&array[0]) );
 }
-Iterator	end()
+Iterator end()
 {
 return( Iterator(&array[m_size]) );
 }

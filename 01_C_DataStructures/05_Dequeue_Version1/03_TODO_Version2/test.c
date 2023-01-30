@@ -1,7 +1,7 @@
 #include <assert.h>
 #include <stdio.h>
 
-#include "deque.h"
+#include <deque.h>
 
 int main(void)
 {

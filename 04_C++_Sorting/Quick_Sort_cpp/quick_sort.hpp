@@ -1,4 +1,3 @@
-
 #pragma	once
 
 //Constant Literals
@@ -43,6 +42,7 @@ array[ole] = array[ile];
 array[ile] = temp;
 return(ole);
 }
+
 template<typename T, class Compare>
 long long Partition(T& array, long long first, long long last, Compare compare)
 {
@@ -98,7 +98,6 @@ long long mid = Partition( array, first, last, compare);
 QuickSort(array, first, mid-1, compare);
 
 //Call to QuickSort for RIGHT SUB-ARRAY
-
 QuickSort(array, mid+1, last, compare);
 }
 }
@@ -106,7 +105,7 @@ QuickSort(array, mid+1, last, compare);
 //Quick Sort
 
 template<typename T, class Compare>
-void QuickSort( T& array, long long first, long long last, Compare compare)
+void	QuickSort( T& array, long long first, long long last, Compare compare)
 {
 
 //Code
@@ -123,7 +122,6 @@ long long mid = Partition( array, first, last, compare);
 QuickSort(array, first, mid-1, compare);
 
 //Call to QuickSort for RIGHT SUB-ARRAY
-
 QuickSort(array, mid+1, last, compare);
 }
 }
